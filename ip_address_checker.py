@@ -35,8 +35,8 @@ if IP == fc:
 else:
     print("difference noted")
     text = "Old IP was "+fc+"\n\nNew IP is: "+IP
-    send_email('latonapython@gmail.com','Sumo21Lima','latona@gmail.com','IP Address change detected', text)
-    f = open("c:\\\\\\Users\\\Timnew\\\Documents\\\Python\\\Docs\\\ip.txt","w")
+    send_email('latonapython@gmail.com','<password>','latona@gmail.com','IP Address change detected', text)
+    f = open("c:\\\\\\Users\\\<place>\\\Documents\\\Python\\\Docs\\\ip.txt","w")
     print(fc)
     print(IP)
     f.write(IP)
