@@ -35,7 +35,7 @@ filepath = credentials.path
 ###
 
 IP = ipgetter.myip()
-#f = open("c:\\\\\\Users\\\Timnew\\\Documents\\\Python\\\Docs\\\ip.txt","r")
+
 f = open(filepath,"r")
 fc = f.read()
 if IP == fc:
