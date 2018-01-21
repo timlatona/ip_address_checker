@@ -1,4 +1,5 @@
 import ipgetter
+import credentials
 def send_email(user, pwd, recipient, subject, body):
     import smtplib
 
@@ -26,8 +27,16 @@ def send_email(user, pwd, recipient, subject, body):
 #import email
 #from email.mime.text import MIMEtext
 
+## information from credentials.py
+gmail_email_from = credentials.login['send_from_email']
+gmail_password = credentials.login['password']
+gmail_email_to = credentials.login['send_to_email']
+filepath = credentials.path
+###
+
 IP = ipgetter.myip()
-f = open("c:\\\\\\Users\\\Timnew\\\Documents\\\Python\\\Docs\\\ip.txt","r")
+#f = open("c:\\\\\\Users\\\Timnew\\\Documents\\\Python\\\Docs\\\ip.txt","r")
+f = open(filepath,"r")
 fc = f.read()
 if IP == fc:
     print(IP,fc)
@@ -35,8 +44,8 @@ if IP == fc:
 else:
     print("difference noted")
     text = "Old IP was "+fc+"\n\nNew IP is: "+IP
-    send_email('latonapython@gmail.com','<password>','latona@gmail.com','IP Address change detected', text)
-    f = open("c:\\\\\\Users\\\<place>\\\Documents\\\Python\\\Docs\\\ip.txt","w")
+    send_email(gmail_email_from,gmail_password,gmail_email_to,'IP Address change detected', text)
+    f = open(filepath,"w")
     print(fc)
     print(IP)
     f.write(IP)
